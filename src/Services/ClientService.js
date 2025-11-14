@@ -15,11 +15,11 @@ export const GetAllClients = async () =>{
 export const GetClientById = async (id) =>{
     try{
         const response = await fetch(`${URL}/${id}`);
-        if(!response.ok) return [];
+        if(!response.ok) return null;
         return await response.json();
     }catch(err){
         console.error("Error fetch GetClientById:", err);
-        return [];
+        return null;
     }
 }
 

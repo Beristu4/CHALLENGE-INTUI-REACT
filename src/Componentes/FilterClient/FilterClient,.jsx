@@ -8,7 +8,7 @@ const FilterClient = ({onSearch}) =>{
 
     useEffect(() =>{
         onSearch({searchName , id})
-    },[id, searchName, onSearch])
+    },[id, searchName])
 
     return(
         <div className="filters">
