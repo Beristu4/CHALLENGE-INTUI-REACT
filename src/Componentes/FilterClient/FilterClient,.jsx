@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"; 
+import './FilterClient.Module.css'
 
 const FilterClient = ({onSearch}) =>{
 
@@ -6,7 +7,6 @@ const FilterClient = ({onSearch}) =>{
     const [searchName, setSearchName] = useState("");
 
     useEffect(() =>{
-        console.log(id)
         onSearch({searchName , id})
     },[id, searchName])
     return(
@@ -16,12 +16,14 @@ const FilterClient = ({onSearch}) =>{
             placeholder="Buscar por ID"
             value={id}
             onChange={(e) => setId(e.target.value)}
+            disabled={searchName !== ""}
             />
             <input 
             type="text" 
             placeholder="Buscar por Nombre"
             value={searchName}
             onChange={(e) => setSearchName(e.target.value)}
+            disabled={id !== ""}
             />
         </div>
     );

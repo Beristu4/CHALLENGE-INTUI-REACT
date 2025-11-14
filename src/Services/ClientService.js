@@ -16,7 +16,6 @@ export const GetClientById = async (id) =>{
     try{
         const response = await fetch(`${URL}/${id}`);
         if(!response.ok) throw new Error("Error al encontrar por Id");
-        console.log(response);
         return await response.json()
     }catch(err){
         console.error("Error fetch GetClientById:", err);

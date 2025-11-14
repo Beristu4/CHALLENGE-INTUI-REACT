@@ -1,0 +1,43 @@
+
+
+.content-form{
+    display: grid;
+
+    button{
+        width: 20%;
+        height: 40px;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: white;
+        margin-top: 40px;
+    }
+    .btn-ok {
+        background-color: green; 
+        color: white;
+        border: none;
+        }
+
+    .btn-error {
+        background-color: red; 
+        color: white;
+        border: none;
+        }
+    input{
+        width: 80%;
+        height: 50px;
+        margin: 10px;
+        border-radius: 3px;
+    }
+}
+
+
+
+
+.green{
+    box-shadow: 5px 5px green;
+}
+
+.red{
+    box-shadow: 5px 5px red;
+}
+

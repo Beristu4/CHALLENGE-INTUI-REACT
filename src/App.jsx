@@ -1,7 +1,7 @@
 import './App.css'
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import CardClient from './Componentes/CardClient'
-import ClientForm from './Componentes/ClientForm';
+import CardClient from './Componentes/CardClient/CardClient'
+import ClientForm from './Componentes/ClientForm/ClientForm';
 
 function App() {
 
