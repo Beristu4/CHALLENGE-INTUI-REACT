@@ -14,7 +14,7 @@ const ClientForm = () => {
     name: "",
     lastName: "",
     dateOfBirth: "",
-    adress: "",
+    address: "",
     telephone: "",
     cuit: "",
     email: ""
@@ -146,7 +146,7 @@ const ClientForm = () => {
 
         <div className="field">
           <input
-            name="adress"
+            name="address"
             value={client.adress}
             onChange={handleChange}
             placeholder="Domicilio"

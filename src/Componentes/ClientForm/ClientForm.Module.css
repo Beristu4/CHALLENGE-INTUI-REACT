@@ -10,6 +10,12 @@
         cursor: pointer;
         background-color: white;
         margin-top: 40px;
+        font-size: 15px;
+
+        &:hover{
+            background-color: aliceblue;
+            transform: translateY(2px);
+        }
     }
     .btn-ok {
         background-color: green; 

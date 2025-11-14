@@ -4,7 +4,7 @@ const URL = "https://localhost:7174/api/Client";
 export const GetAllClients = async () =>{
     try {
         const response = await fetch(URL);
-        if (!response.ok) throw new Error("Error en la API");
+        if (!response.ok) return [];
         return await response.json();
     } catch (err) {
         console.error("Error fetch GetAllClients:", err);
@@ -15,8 +15,8 @@ export const GetAllClients = async () =>{
 export const GetClientById = async (id) =>{
     try{
         const response = await fetch(`${URL}/${id}`);
-        if(!response.ok) throw new Error("Error al encontrar por Id");
-        return await response.json()
+        if(!response.ok) return [];
+        return await response.json();
     }catch(err){
         console.error("Error fetch GetClientById:", err);
         return [];
@@ -26,8 +26,8 @@ export const GetClientById = async (id) =>{
 export const SearchByName = async (name) =>{
     try{
         const response = await fetch(`${URL}/search?name=${name}`);
-        if(!response.ok) throw new Error("Error al encontrar por Nombre");
-        return await response.json()
+        if(!response.ok) return [];
+        return await response.json();
     }catch(err){
         console.error("Error fetch SearchByName:", err);
         return [];
