@@ -14,7 +14,6 @@ export const GetAllClients = async () =>{
 
 export const GetClientById = async (id) =>{
     try{
-        console.log("id desde el service", id)
         const response = await fetch(`${URL}/${id}`);
         if(!response.ok) throw new Error("Error al encontrar por Id");
         console.log(response);
@@ -29,10 +28,39 @@ export const SearchByName = async (name) =>{
     try{
         const response = await fetch(`${URL}/search?name=${name}`);
         if(!response.ok) throw new Error("Error al encontrar por Nombre");
-        console.log(response);
         return await response.json()
     }catch(err){
         console.error("Error fetch SearchByName:", err);
         return [];
+    }
+}
+
+export const InsertClient = async (client) =>{
+    try{
+        const response = await fetch(URL, {
+            method:"Post",
+            headers:{"Content-Type": "application/json"},
+            body: JSON.stringify(client)
+        });
+        if(!response.ok) throw new Error("Error al crear el Cliente");
+        return await response.json()
+    }catch (err) {
+        console.error(err);
+        return null;
+    }
+}
+
+export const UpdateClient = async (client) =>{
+    try{
+        const response = await fetch(URL, {
+            method:"Put",
+            headers:{"Content-Type": "application/json"},
+            body: JSON.stringify(client)
+        });
+        if(!response.ok) throw new Error("Error al actualizar el Cliente");
+        return await response.json()
+    }catch (err) {
+        console.error(err);
+        return null;
     }
 }
