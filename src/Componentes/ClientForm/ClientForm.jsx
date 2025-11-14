@@ -23,35 +23,35 @@ const ClientForm = () => {
   const [errors, setErrors] = useState({});
 
   const validateField = (name, value) => {
-        switch (name) {
-        case "name":
-        case "lastName":
-            if (!value || !value.trim()) return "Campo obligatorio";
-            return "";
-        case "telephone":
-            if (!value || !value.trim()) return "Campo obligatorio";
-            if (!/^\+?\d{10,15}$/.test(value)) return "Teléfono inválido";
-            return "";
-        case "cuit":
-            if (!value || !value.trim()) return "Campo obligatorio";
-            if (!/^\d{11}$/.test(value)) return "CUIT debe tener 11 dígitos";
-            return "";
-        case "email":
-            if (!value || !value.trim()) return "Campo obligatorio";
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return "Email inválido";
-            return "";
-        default:
-            return "";
-        }
-    };
-    const validateAll = (sourceClient = client) => {
-        const newErrors = {};
-        requiredFields.forEach(f => {
-        const err = validateField(f, sourceClient[f]);
-        if (err) newErrors[f] = err;
-        });
-        return newErrors;
-    };
+    switch (name) {
+    case "name":
+    case "lastName":
+        if (!value || !value.trim()) return "Campo obligatorio";
+        return "";
+    case "telephone":
+        if (!value || !value.trim()) return "Campo obligatorio";
+        if (!/^\+?\d{10,15}$/.test(value)) return "Teléfono inválido";
+        return "";
+    case "cuit":
+        if (!value || !value.trim()) return "Campo obligatorio";
+        if (!/^\d{11}$/.test(value)) return "CUIT debe tener 11 dígitos";
+        return "";
+    case "email":
+        if (!value || !value.trim()) return "Campo obligatorio";
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return "Email inválido";
+        return "";
+    default:
+        return "";
+    }
+  };
+  const validateAll = (sourceClient = client) => {
+      const newErrors = {};
+      requiredFields.forEach(f => {
+      const err = validateField(f, sourceClient[f]);
+      if (err) newErrors[f] = err;
+      });
+      return newErrors;
+  };
 
   useEffect(() => {
     if (id) {
