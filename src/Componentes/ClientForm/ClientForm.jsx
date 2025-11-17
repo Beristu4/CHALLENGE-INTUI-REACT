@@ -65,7 +65,6 @@ const ClientForm = () => {
               : ""
           };
           setClient(formattedData);
-          // validar al cargar los datos
           const initialErrors = validateAll(formattedData);
           setErrors(initialErrors);
         }
@@ -78,7 +77,6 @@ const ClientForm = () => {
     const newClient = { ...client, [name]: value };
     setClient(newClient);
 
-    // validar solo ese campo y actualizar errors correctamente (borrar la key si no hay error)
     const err = validateField(name, value);
     setErrors(prev => {
       const copy = { ...prev };
@@ -94,7 +92,7 @@ const ClientForm = () => {
     const validationErrors = validateAll();
     setErrors(validationErrors);
 
-    if (Object.keys(validationErrors).length > 0) return; // no submit si hay errores
+    if (Object.keys(validationErrors).length > 0) return;
 
     const payload = { ...client };
     payload.dateOfBirth = client.dateOfBirth ? dayjs(client.dateOfBirth).format("YYYY-MM-DD") : null;
